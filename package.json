@@ -1,0 +1,34 @@
+{
+  "name": "flashget",
+  "version": "1.0.0",
+  "description": "Split fragment multi currency download module and command line tool.",
+  "main": "index.js",
+  "bin": {
+    "flashget": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node ./test/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenxianming/flashget.git"
+  },
+  "keywords": [
+    "downloader",
+    "multistream"
+  ],
+  "author": "cxm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenxianming/flashget/issues"
+  },
+  "homepage": "https://github.com/chenxianming/flashget#readme",
+  "dependencies": {
+    "async": "^3.1.1",
+    "check-disk-space": "^2.1.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
+}
