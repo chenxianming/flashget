@@ -35,7 +35,7 @@ downloading( 3%) ⸨=-------------------⸩ 6060kb/s [1000/2000]
 ## Node module
 Import flashget to your project, very easy.
 ```
-npm i flashget -g
+npm i flashget
 ```
 
 ```
