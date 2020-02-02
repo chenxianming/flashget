@@ -1,7 +1,7 @@
 {
   "name": "flashget",
-  "version": "1.0.0",
-  "description": "Split fragment multi currency download module and command line tool.",
+  "version": "1.0.4",
+  "description": "Parallel download module & command line tool ( largesize file supported )",
   "main": "index.js",
   "bin": {
     "flashget": "bin/cli.js"
@@ -15,7 +15,9 @@
   },
   "keywords": [
     "downloader",
-    "multistream"
+    "multistream",
+    "parallel",
+    "command line"
   ],
   "author": "cxm",
   "license": "ISC",
@@ -30,5 +32,8 @@
   "directories": {
     "test": "test"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": ">=8.0.0"
+  }
 }
