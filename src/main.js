@@ -178,6 +178,7 @@ class Downloader {
         this.exit = this.exit.bind(this);
         this.stop = this.stop.bind(this);
         this.clear = this.clear.bind(this);
+        this.on = this.on.bind(this);
     }
 
     detectFile() {
@@ -235,12 +236,7 @@ class Downloader {
         let progress = this.progress();
 
         if (this.isEnded) {
-            return this.events.emit('progress', {
-                current: this.size,
-                total: this.size,
-                progress: 1,
-                speed: this.speed
-            });
+            return ;
         }
         
         this.events.emit('progress', progress);
@@ -367,6 +363,14 @@ class Downloader {
                     callback();
                 });
             }, () => {
+                // send end, we can't detect progress when data was writing
+                self.events.emit('progress', {
+                    current: self.size,
+                    total: self.size,
+                    progress: 1,
+                    speed: self.speed
+                });
+                
                 self.isEnded = true;
                 self.merge(self.taskId, function () {
                     self.events.emit('end', self.output, ((new Date()).getTime() - sTime));
@@ -412,6 +416,7 @@ class Downloader {
 
     on(ename, callback) {
         this.events.on(ename, callback);
+        return this;
     }
 }
 

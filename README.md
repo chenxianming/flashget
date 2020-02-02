@@ -63,6 +63,19 @@ task.on('progress', (pro, speed) => {
 task.begin();
 ```
 
+On chain called
+```
+new Downloader({
+    url: 'http://www.mirrorservice.org/sites/releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso', // url
+    currency: 5, // parallel thread
+    output: './ubuntu-18.04.3-desktop-amd64.iso' // save as
+})
+.on('error', (err) => console.log(err) )
+.on('end', (exportname) => console.log(`your file download here ${ exportname }`))
+.on('progress', (progress) => console.log( progress ) )
+.begin();
+```
+
 # Test
 
 ``` 
