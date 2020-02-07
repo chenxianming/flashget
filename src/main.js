@@ -166,7 +166,7 @@ class Downloader {
         this.isFinished = false;
 
         this.ticks = [];
-        this.retry = new Float32Array(this.currency);
+        this.retry = new Uint8Array(this.currency);
 
         this.events = new Event();
         this.taskId = ranstr(11);
