@@ -84,7 +84,7 @@ class Fetch {
             self = this,
             options = url.parse(location);
         
-        this.headers = Object.assign(this.headers, headers);
+        this.headers = Object.assign(headers, this.headers);
         options.headers = this.headers;
         
         // reject check certificate
@@ -125,7 +125,7 @@ class Fetch {
             response.on('data', (data) => {
                 wsm.write(data);
 
-                if( fs.statSync(self.output).size > self.total ){ // some server limit connection, breaktransfer and retry
+                if( fs.existsSync(self.output) && ( fs.statSync(self.output).size > self.total ) ){ // some server limit 
                         self.request.abort();
                         wsm.end();
 
@@ -152,7 +152,7 @@ class Fetch {
                         return callback(self.request);
                     }
                     
-                    if( fs.statSync(self.output).size != self.total ){
+                    if( fs.existsSync(self.output) && ( fs.statSync(self.output).size != self.total ) ){
                         self.request.abort();
                         wsm.end();
                         
