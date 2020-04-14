@@ -130,6 +130,28 @@ class Fetch {
                 }, 50 );
             });
             
+            response.on('data', (data) => {
+                wsm.write(data);
+
+                if( fs.statSync(self.output).size > self.total ){ // some server limit connection, breaktransfer and retry
+                        self.request.abort();
+                        wsm.end();
+
+                        fs.existsSync(self.output) && fs.unlink(self.output, () => {
+                            console.log('writestream sync faild, try again.');
+                            setTimeout( () => self.rq(location, callback), 5000 );
+                        });
+
+                        return ;
+                 }
+
+                // created files was slow when parallel mode
+                setTimeout( () => {
+                    fs.existsSync(self.output) && ( self.progress(data.length, fs.statSync(self.output).size, self.total || 'Unkown size') );
+                }, 50 );
+            });
+
+            
             response.on('end', () => {
                 // That's important delay, continue transfering must waiting for disk write completed
                 setTimeout( () => {
