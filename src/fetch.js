@@ -121,14 +121,6 @@ class Fetch {
             
             // create / append source
             let wsm = fs.createWriteStream(self.output);
-
-            response.on('data', (data) => {
-                wsm.write(data);
-                // created files was slow when parallel mode
-                setTimeout( () => {
-                    fs.existsSync(self.output) && ( self.progress(data.length, fs.statSync(self.output).size, self.total || 'Unkown size') );
-                }, 50 );
-            });
             
             response.on('data', (data) => {
                 wsm.write(data);
