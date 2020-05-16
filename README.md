@@ -8,6 +8,8 @@ fs.writeStream was very smooth running on SolidStateDrive, but if on your iot de
 [![npm](https://img.shields.io/npm/dt/flashget.svg)](https://www.npmjs.com/package/flashget)
 [![node](https://img.shields.io/node/v/flashget.svg)](https://nodejs.org/en/download/)
 
+#### In other one package, continue transfering from break point was supported, see
+https://www.npmjs.com/package/fetchsource
 
 # How to use?
 
