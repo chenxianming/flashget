@@ -11,6 +11,9 @@ fs.writeStream was very smooth running on SolidStateDrive, but if on your iot de
 #### In other one package, continue transfering from break point was supported, see
 https://www.npmjs.com/package/fetchsource
 
+#### Executive file released on
+https://github.com/chenxianming/flashget/releases
+
 # How to use?
 
 ## Command line tool
