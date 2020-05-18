@@ -46,7 +46,7 @@ const getArgv = ( argv ) => {
     result['currency'] = Math.max( result['currency'], 1 );
     result['currency'] = Math.min( result['currency'], 50 );
     
-    result['output'] = path.basename( result.url || '' );
+    result['output'] = decodeURIComponent( path.basename( result.url || '' ) );
     
     return result;
 }
